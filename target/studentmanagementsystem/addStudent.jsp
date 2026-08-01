@@ -10,12 +10,12 @@
 
 <form action="studentServlet" method= "post">
 
-<input type="text" name= "rollNo">Roll Number <br> <br>
-<input type="text" name= "firstName">First Name <br> <br>
-<input type="text" name= "lastName">Last Name <br> <br>
-<input type="radio" name= "gender">Gender <br> <br>
-<input type="email" name= "email">Email <br> <br>
-<input type="tel" name= "phone">Phone <br> <br>
+Roll Number <input type="text" name= "rollNo"> <br> <br>
+First Name <input type="text" name= "firstName"> <br> <br>
+Last Name <input type="text" name= "lastName"> <br> <br>
+Gender: <input type="radio" name= "gender">Male <input type="radio">Female <br> <br>
+Email <input type="email" name= "email"> <br> <br>
+Phone <input type="tel" name= "phone"> <br> <br>
 <select name="branch">
     <option value="CSE">CSE</option>
     <option value="ECE">ECE</option>
@@ -28,9 +28,13 @@
     <option value="3">3rd Year</option>
     <option value="4">4th Year</option>
 </select> <br> <br>
-<input type="text" name= "section">Section <br> <br>
+Section <input type="text" name= "section"> <br> <br>
+
+<button type= "submit">Add Details</button>
 
 </form>
+
+<p> <%= request.getAttribute("message")  %> </p>
 
 </body>
 </html>

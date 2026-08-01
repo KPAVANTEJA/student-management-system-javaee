@@ -1,5 +1,7 @@
 package com.sms.controller;
 
+import java.util.List;
+
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.ServletException;
@@ -52,6 +54,22 @@ public class StudentServlet extends HttpServlet {
 		
 		request.getRequestDispatcher("addStudent.jsp")
 	           .forward(request, response);
+	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		String action = request.getParameter("action");
+		StudentDAO studentDAO = new StudentDAO();
+		
+		List<Student> students = studentDAO .getAllStudents();
+		
+		
+		if("view".equals(action)) {
+			request.setAttribute("students", students);
+			
+			request.getRequestDispatcher("/viewStudents.jsp").forward(request, response);
+		}
 	}
 
 }

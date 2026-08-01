@@ -27,7 +27,7 @@
 
 <ul>
 <li><a href= "addStudent.jsp">New</a></li>
-<li><a href= "viewStudents">View</a></li>
+<li><a href= "studentServlet?action =view">View Students</a></li>
 
 </ul>
 
