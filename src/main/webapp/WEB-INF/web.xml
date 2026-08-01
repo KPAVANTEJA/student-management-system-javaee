@@ -10,8 +10,18 @@
   	<description></description>
   	<servlet-class>com.sms.controller.LogoutServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>StudentServlet</servlet-name>
+  	<display-name>StudentServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.sms.controller.StudentServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LogoutServlet</servlet-name>
   	<url-pattern>/LogoutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>StudentServlet</servlet-name>
+  	<url-pattern>/StudentServlet</url-pattern>
   </servlet-mapping>
 </web-app>

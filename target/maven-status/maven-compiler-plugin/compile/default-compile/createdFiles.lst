@@ -1,6 +1,7 @@
 com\sms\dao\UserDAO.class
 com\sms\controller\LoginServlet.class
 com\sms\util\DBConnection.class
+com\sms\controller\StudentServlet.class
 com\sms\model\User.class
 com\sms\dao\StudentDAO.class
 com\sms\model\Student.class

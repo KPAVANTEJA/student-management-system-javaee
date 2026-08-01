@@ -23,6 +23,14 @@
     Thank you for contributing as a <%= user.getRole() %>
 </p>
 
+<h3>Student can Add, Update, and Delete his/her details quickly.</h3>
+
+<ul>
+<li><a href= "addStudent.jsp">New</a></li>
+<li><a href= "viewStudents">View</a></li>
+
+</ul>
+
 <a href="logout" ><button>Logout</button></a>
 </body>
 </html>
