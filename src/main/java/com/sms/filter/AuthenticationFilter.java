@@ -49,7 +49,7 @@ public class AuthenticationFilter implements Filter{
 	    if (publicResource || loggedIn) {
 	        chain.doFilter(request, response);
 	    } else {
-	        res.sendRedirect(req.getContextPath() + "/index.jsp");
+	        res.sendRedirect(req.getContextPath() + "/index.jsp?expired=true");
 	    }
 	}
 }
