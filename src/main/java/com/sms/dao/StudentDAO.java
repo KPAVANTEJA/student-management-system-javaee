@@ -76,4 +76,39 @@ public class StudentDAO {
 		
 		return students;
 	}
+	
+	public Student searchStudent(String rollNo) {
+		
+		String sql = "SELECT * FROM STUDENT WHERE ROLL_NO = ?";
+		
+		
+		try {
+			
+			PreparedStatement ps = connect.prepareStatement(sql);
+			ps.setString(1, rollNo);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				Student student = new Student();
+				
+				student.setRollNo(rs.getString("ROLL_NO"));
+				student.setFirstName(rs.getString("FIRST_NAME"));
+				student.setLastName(rs.getString("LAST_NAME"));
+				student.setGender(rs.getString("GENDER"));
+				student.setEmail(rs.getString("EMAIL"));
+				student.setPhone(rs.getString("PHONE"));
+				student.setBranch(rs.getString("BRANCH"));
+				student.setYear(rs.getInt("YEAR"));
+				student.setSection(rs.getString("SECTION"));
+				
+				return student;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

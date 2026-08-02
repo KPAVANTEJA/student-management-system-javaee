@@ -31,6 +31,8 @@
 
 </ul>
 
+<a href= "searchStudent.jsp">Search Student</a>
+
 <a href="logout" ><button>Logout</button></a>
 </body>
 </html>

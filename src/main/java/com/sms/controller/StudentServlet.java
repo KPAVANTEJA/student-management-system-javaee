@@ -62,13 +62,35 @@ public class StudentServlet extends HttpServlet {
 		String action = request.getParameter("action");
 		StudentDAO studentDAO = new StudentDAO();
 		
-		List<Student> students = studentDAO .getAllStudents();
+		List<Student> students = studentDAO.getAllStudents();
 		
 		
 		if("view".equals(action)) {
 			request.setAttribute("students", students);
 			
 			request.getRequestDispatcher("/viewStudents.jsp").forward(request, response);
+		}
+		
+		if("search".equals(action)) {
+			
+			String rollNo = request.getParameter("rollNo");
+			
+			Student student = studentDAO.searchStudent(rollNo);
+			
+			if(student != null){
+
+			    request.setAttribute("student",student);
+
+			    request.getRequestDispatcher("searchResult.jsp").forward(request,response);
+
+			}
+			else{
+
+			    request.setAttribute("message","Student Not Found.");
+
+			    request.getRequestDispatcher("searchStudent.jsp").forward(request,response);
+
+			}
 		}
 	}
 
