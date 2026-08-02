@@ -47,7 +47,7 @@ for(Student student : students){
 </td>
 
 <td>
-	<a href="studentServlet?action=delete" onclick="return confirm('Are you sure you want to delete?');">
+	<a href="studentServlet?action=delete&rollNo=<%=student.getRollNo()%>" onclick="return confirm('Are you sure you want to delete?');">
 	Delete</a>
 </td>
 

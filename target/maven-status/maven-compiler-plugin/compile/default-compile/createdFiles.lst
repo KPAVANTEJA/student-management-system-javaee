@@ -1,3 +1,4 @@
+com\sms\filter\AuthenticationFilter.class
 com\sms\dao\UserDAO.class
 com\sms\controller\LoginServlet.class
 com\sms\util\DBConnection.class

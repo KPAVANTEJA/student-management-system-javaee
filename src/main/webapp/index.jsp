@@ -12,6 +12,6 @@
 <h3>You are most Welcome !</h3>
 
 <p>Login to access student details and to work on </p>
-<button href="login.jsp">Login</button>
+<a href="login.jsp"><button>Login</button></a>
 </body>
 </html>
