@@ -20,7 +20,8 @@
  <th>Dept.</th>
  <th>Year</th>
  <th>Sec</th>
- <th>Action</th>
+ <th>Modify</th>
+ <th>Remove</th>
 </tr>
 
 <%
@@ -45,11 +46,18 @@ for(Student student : students){
     </a>
 </td>
 
+<td>
+	<a href="studentServlet?action=delete&rollNo=<%=student.getRollNo()%>" onclick="return confirm('Are you sure you want to delete?');">
+	Delete</a>
+</td>
+
 </tr>
 
 <% } %>
 </table>
 
-<h5>Students List</h5>
+<% String msg = (String) request.getAttribute("message"); %>
+
+<h5><%= msg %></h5>
 </body>
 </html>

@@ -111,13 +111,14 @@ public class StudentServlet extends HttpServlet {
 		String action = request.getParameter("action");
 		StudentDAO studentDAO = new StudentDAO();
 		
-		List<Student> students = studentDAO.getAllStudents();
-		
 		
 		if("view".equals(action)) {
+			
+			List<Student> students = studentDAO.getAllStudents();
+			
 			request.setAttribute("students", students);
 			
-			request.getRequestDispatcher("/viewStudents.jsp").forward(request, response);
+			request.getRequestDispatcher("viewStudents.jsp").forward(request, response);
 		}
 		
 		if("search".equals(action)) {
@@ -151,6 +152,19 @@ public class StudentServlet extends HttpServlet {
 
 			request.getRequestDispatcher("editStudent.jsp")
 			       .forward(request, response);
+		}
+		
+		else if("delete".equals(action)) {
+			String rollNo = request.getParameter("rollNo");
+			
+			boolean deleted = studentDAO.deleteStudent(rollNo);
+			
+			if(deleted) {
+				response.sendRedirect("studentServlet?action=view");
+			} else {
+				request.setAttribute("message", "Failed to delete");
+				request.getRequestDispatcher("viewStudents.jsp").forward(request, response);
+			}
 		}
 	}
 

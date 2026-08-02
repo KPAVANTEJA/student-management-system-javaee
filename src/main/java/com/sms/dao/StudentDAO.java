@@ -140,4 +140,25 @@ public class StudentDAO {
 		return updatedRows > 0;
 		
 	}
+	
+	public boolean deleteStudent(String rollNo) {
+		
+		int rowsDeleted = 0;
+		
+		String sql = "DELETE FROM STUDENT WHERE ROLL_NO = ?";
+		
+		try {
+			PreparedStatement ps = connect.prepareStatement(sql);
+			
+			ps.setString(1, rollNo);
+			
+			rowsDeleted = ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return rowsDeleted > 0;
+		
+	}
 }
