@@ -162,4 +162,40 @@ public class StudentDAO {
 		return rowsDeleted > 0;
 		
 	}
+	
+	public boolean isRollNumberExists(String rollNo) {
+		String sql = "SELECT 1 FROM STUDENT WHERE ROLL_NO=?";
+		
+		try {
+			PreparedStatement ps = connect.prepareStatement(sql);
+			
+			ps.setString(1, rollNo);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public boolean isEmailExists(String email) {
+		String sql = "SELECT 1 FROM STUDENT WHERE EMAIL=?";
+		
+		try {
+			PreparedStatement ps = connect.prepareStatement(sql);
+			
+			ps.setString(1, email);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
 }

@@ -31,10 +31,47 @@ public class StudentServlet extends HttpServlet {
 		if("add".equals(action)) {
 			
 			String rollNo = request.getParameter("rollNo");
+			rollNo = rollNo.trim().toUpperCase();
+			
+			if(rollNo.isEmpty()){
+
+				request.setAttribute("error", "Email is required.");
+				request.getRequestDispatcher("addStudent.jsp").forward(request, response);
+
+			    return;
+			}
+			
+			if(studentDAO.isRollNumberExists(rollNo)){
+
+			    request.setAttribute("error", "Roll Number already exists.");
+
+			    request.getRequestDispatcher("addStudent.jsp").forward(request,response);
+
+			    return;
+			}
+			
 			String firstName = request.getParameter("firstName");
 			String lastName = request.getParameter("lastName");
 			String gender = request.getParameter("gender");
+			
 			String email = request.getParameter("email");
+			email = email.trim();
+			
+			if(email.isEmpty()) {
+				request.setAttribute("error", "Email is required.");
+				request.getRequestDispatcher("addStudent.jsp").forward(request, response);
+				
+				return;
+			}
+			if(studentDAO.isEmailExists(email)){
+
+			    request.setAttribute("error", "Email already exists.");
+
+			    request.getRequestDispatcher("addStudent.jsp").forward(request,response);
+
+			    return;
+			}
+			
 			String phone = request.getParameter("phone");
 			String branch = request.getParameter("branch");
 			int year = Integer.parseInt(request.getParameter("year"));
@@ -56,13 +93,11 @@ public class StudentServlet extends HttpServlet {
 			boolean added = studentDAO.addStudent(student);
 			
 			if(added) {
-				request.setAttribute("message", "Student Registration successfull.");
+				response.sendRedirect("studentServlet?action=view&success=added");
 			} else {
-				request.setAttribute("message", "Failed to register as a student");
+				request.setAttribute("message", "Failed to register.");
+				request.getRequestDispatcher("addStudent.jsp").forward(request, response);
 			}
-			
-			request.getRequestDispatcher("addStudent.jsp")
-		           .forward(request, response);
 			
 		}
 		

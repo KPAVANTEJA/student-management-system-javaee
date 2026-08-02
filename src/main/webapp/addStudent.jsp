@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form action="studentServlet?action=add" method= "post">
+<form action="studentServlet?action=add" method= "post" onsubmit="return validateForm();">
 
 Roll Number <input type="text" name= "rollNo"> <br> <br>
 First Name <input type="text" name= "firstName"> <br> <br>
@@ -36,6 +36,9 @@ Section <input type="text" name= "section"> <br> <br>
 </form>
 
 <p> <%= request.getAttribute("message")  %> </p>
+<p> <%= request.getAttribute("error") %></p>
 
+
+<script src="js/validation.js"></script>
 </body>
 </html>

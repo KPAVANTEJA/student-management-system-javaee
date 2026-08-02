@@ -11,6 +11,17 @@
 <%@ page import = "com.sms.model.Student" %>
 
 <% List<Student> students = (List<Student>) request.getAttribute("students"); %>
+ <%
+String success = request.getParameter("success");
+
+if("added".equals(success)){
+%>
+
+<p>Student added successfully.</p>
+
+<%
+}
+%>
  
 <table border= 1>
 
