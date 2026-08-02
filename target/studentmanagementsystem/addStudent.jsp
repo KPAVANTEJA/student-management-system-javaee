@@ -8,12 +8,13 @@
 </head>
 <body>
 
-<form action="studentServlet" method= "post">
+<form action="studentServlet?action=add" method= "post">
 
 Roll Number <input type="text" name= "rollNo"> <br> <br>
 First Name <input type="text" name= "firstName"> <br> <br>
 Last Name <input type="text" name= "lastName"> <br> <br>
-Gender: <input type="radio" name= "gender">Male <input type="radio">Female <br> <br>
+Gender: <input type="radio" name="gender" value="Male">Male
+		<input type="radio" name="gender" value="Female">Female <br> <br>
 Email <input type="email" name= "email"> <br> <br>
 Phone <input type="tel" name= "phone"> <br> <br>
 <select name="branch">

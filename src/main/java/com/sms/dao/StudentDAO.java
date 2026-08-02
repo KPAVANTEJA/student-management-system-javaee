@@ -111,4 +111,33 @@ public class StudentDAO {
 		}
 		return null;
 	}
+	
+	public boolean updateStudent(Student student) {
+		
+		String sql = "UPDATE STUDENT SET FIRST_NAME=?, LAST_NAME=?, GENDER=?, EMAIL=?, PHONE=?, BRANCH=?, YEAR=?, SECTION=? WHERE ROLL_NO = ?";
+		int updatedRows = 0;
+		
+		try {
+			PreparedStatement ps = connect.prepareStatement(sql);
+			
+			ps.setString(1, student.getFirstName());
+			ps.setString(2, student.getLastName());
+			ps.setString(3, student.getGender());
+			ps.setString(4, student.getEmail());
+			ps.setString(5, student.getPhone());
+			ps.setString(6, student.getBranch());
+			ps.setInt(7, student.getYear());
+			ps.setString(8, student.getSection());
+
+			ps.setString(9, student.getRollNo());
+			
+			updatedRows = ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return updatedRows > 0;
+		
+	}
 }

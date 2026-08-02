@@ -13,6 +13,16 @@
 <% List<Student> students = (List<Student>) request.getAttribute("students"); %>
  
 <table border= 1>
+
+<tr>
+ <th>Roll Number</th> 
+ <th>Name</th>
+ <th>Dept.</th>
+ <th>Year</th>
+ <th>Sec</th>
+ <th>Action</th>
+</tr>
+
 <%
 for(Student student : students){
 %>
@@ -29,11 +39,15 @@ for(Student student : students){
 
 <td><%=student.getSection()%></td>
 
+<td>
+    <a href="studentServlet?action=edit&rollNo=<%=student.getRollNo()%>">
+        Edit
+    </a>
+</td>
+
 </tr>
 
-<%
-}
-%>
+<% } %>
 </table>
 
 <h5>Students List</h5>

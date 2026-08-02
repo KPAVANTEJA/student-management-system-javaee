@@ -25,6 +25,7 @@
 </form>
 
 <% String msg = (String)request.getAttribute("message"); %>
+
 <h6><%= msg %></h6>
 </body>
 </html>
