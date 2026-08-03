@@ -22,11 +22,25 @@ public class AuthenticationFilter implements Filter{
 
 	    HttpServletRequest req = (HttpServletRequest) request;
 	    HttpServletResponse res = (HttpServletResponse) response;
-
+//cache control
 	    res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 	    res.setHeader("Pragma", "no-cache");
 	    res.setDateHeader("Expires", 0);
+//cookies control
+	    res.setHeader(
+	    	    "X-Frame-Options",
+	    	    "DENY"
+	    	);
 
+	    	res.setHeader(
+	    	    "X-Content-Type-Options",
+	    	    "nosniff"
+	    	);
+
+	    	res.setHeader(
+	    	    "Referrer-Policy",
+	    	    "strict-origin"
+	    	);
 	    String uri = req.getRequestURI();
 	    HttpSession session = req.getSession(false);
 
@@ -49,7 +63,19 @@ public class AuthenticationFilter implements Filter{
 	    if (publicResource || loggedIn) {
 	        chain.doFilter(request, response);
 	    } else {
-	        res.sendRedirect(req.getContextPath() + "/index.jsp?expired=true");
+//	        res.sendRedirect(req.getContextPath() + "/index.jsp");
+	    	// Check whether the browser sent an expired session id
+	        if (req.getRequestedSessionId() != null 
+	                && !req.isRequestedSessionIdValid()) {
+
+	            res.sendRedirect(req.getContextPath() + "/index.jsp?expired=true");
+
+	        } else {
+
+	            // First time visitor or user who never logged in
+	            res.sendRedirect(req.getContextPath() + "/index.jsp");
+	        }
+	    	
 	    }
 	}
 }

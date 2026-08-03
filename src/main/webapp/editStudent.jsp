@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Edit Student</title>
+<link rel="stylesheet" href="css/form.css">
 </head>
 <body>
 <%@ page import="com.sms.model.Student" %>
@@ -12,6 +13,16 @@
 <%
 Student student = (Student) request.getAttribute("student");
 %>
+
+<div class="container">
+
+    <div class="form-card">
+
+<h1>Edit Student</h1>
+
+<p>
+Enter student details below.
+</p>
 <form action="studentServlet?action=update" method ="post">
 <input type="text" name="rollNo" value="<%=student.getRollNo()%>" readonly>
 
@@ -50,5 +61,9 @@ Female
 </form>
 <% String msg = (String) request.getAttribute("message"); %>
 <p><%= msg %></p>
+
+  </div>
+
+</div>
 </body>
 </html>

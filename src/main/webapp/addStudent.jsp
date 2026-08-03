@@ -4,41 +4,112 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Student Management System</title>
+<link rel="stylesheet" href="css/form.css">
 </head>
+
 <body>
 
-<form action="studentServlet?action=add" method= "post" onsubmit="return validateForm();">
+<div class="container">
 
-Roll Number <input type="text" name= "rollNo"> <br> <br>
-First Name <input type="text" name= "firstName"> <br> <br>
-Last Name <input type="text" name= "lastName"> <br> <br>
-Gender: <input type="radio" name="gender" value="Male">Male
-		<input type="radio" name="gender" value="Female">Female <br> <br>
-Email <input type="email" name= "email"> <br> <br>
-Phone <input type="tel" name= "phone"> <br> <br>
+<div class="form-card">
+
+<h1>Add Student</h1>
+<p>Enter student details below.</p>
+
+<form action="studentServlet?action=add" method= "post" onsubmit="return validateForm();">
+<div class="form-grid">
+
+<div class="form-group">
+<label>Roll Number *</label>
+<input type="text" name= "rollNo" required>
+</div>
+
+<div class="form-group">
+<label>First Name *</label>
+<input type="text" name= "firstName" required>
+</div>
+
+<div class="form-group">
+<label>Last Name *</label>
+<input type="text" name= "lastName" required>
+</div>
+
+<div class="form-group">
+<label>Gender *</label>
+<select name="gender">
+	<option value="">Select Gender</option>
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+    <option value="Others">Others..</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Email *</label>
+<input type="email" name= "email" required>
+</div>
+
+<div class="form-group">
+<label>Phone *</label>
+<input type="tel" name= "phone" required>
+</div>
+
+<div class="form-group">
+<label>Stream *</label>
 <select name="branch">
+	<option value="">Select Branch</option>
     <option value="CSE">CSE</option>
     <option value="ECE">ECE</option>
     <option value="EEE">EEE</option>
     <option value="MECH">MECH</option>
-</select> <br> <br>
+</select>
+</div>
+
+<div class="form-group">
+<label>Current Year *</label>
 <select name="year">
+	<option value="">Select Year</option>
     <option value="1">1st Year</option>
     <option value="2">2nd Year</option>
     <option value="3">3rd Year</option>
     <option value="4">4th Year</option>
-</select> <br> <br>
-Section <input type="text" name= "section"> <br> <br>
+</select>
+</div>
 
-<button type= "submit">Add Details</button>
+<div class="form-group">
+<label>Section *</label>
+<input type="text" name= "section" required>
+</div>
 
+<div class="button-group">
+<button type="submit">Save Student</button>
+<button type="reset">Reset</button>
+<a href="dashboard.jsp">Cancel</a>
+</div>
+
+</div>
 </form>
 
-<p> <%= request.getAttribute("message")  %> </p>
-<p> <%= request.getAttribute("error") %></p>
+<% String msg = (String) request.getAttribute("message");
+if(msg != null){
+	%>
+	<p><%= msg %></p>
+<%
+}
+%>
+<% String error = (String) request.getAttribute("error");
+if(msg != null){
+	%>
+	<p><%= error %></p>
+<%
+}
+%>
 
+</div>
+</div>
 
 <script src="js/validation.js"></script>
+
 </body>
 </html>

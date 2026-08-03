@@ -4,6 +4,8 @@ import java.util.List;
 
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sms.dao.StudentDAO;
+import com.sms.exception.DatabaseException;
+import com.sms.exception.DuplicateStudentException;
+import com.sms.exception.StudentNotFoundException;
 import com.sms.model.Student;
 
 /**
@@ -47,7 +52,9 @@ public class StudentServlet extends HttpServlet {
 
 			    request.getRequestDispatcher("addStudent.jsp").forward(request,response);
 
-			    return;
+			    throw new DuplicateStudentException(
+			    	    "Roll Number already exists."
+			    	);
 			}
 			
 			String firstName = request.getParameter("firstName");
@@ -89,14 +96,24 @@ public class StudentServlet extends HttpServlet {
 			student.setYear(year);
 			student.setSection(section);
 			
-
-			boolean added = studentDAO.addStudent(student);
 			
-			if(added) {
+//			boolean added = studentDAO.addStudent(student);
+//			
+//			if(added) {
+//				response.sendRedirect("studentServlet?action=view&success=added");
+//			} else {
+//				request.setAttribute("message", "Failed to register.");
+//				request.getRequestDispatcher("addStudent.jsp").forward(request, response);
+//			}
+			
+			try {
+				studentDAO.addStudent(student);
 				response.sendRedirect("studentServlet?action=view&success=added");
-			} else {
+			} catch (DuplicateStudentException e) {
 				request.setAttribute("message", "Failed to register.");
 				request.getRequestDispatcher("addStudent.jsp").forward(request, response);
+			} catch(DatabaseException e) {
+				response.sendRedirect("error.jsp");
 			}
 			
 		}
@@ -151,8 +168,18 @@ public class StudentServlet extends HttpServlet {
 		if("view".equals(action)) {
 			
 			List<Student> students = studentDAO.getAllStudents();
+			int rows = 0;
+			
+			try {
+				rows = studentDAO.getTotalStudents();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 			request.setAttribute("students", students);
+			request.setAttribute("totalStudents", rows);
+
 			
 			request.getRequestDispatcher("viewStudents.jsp").forward(request, response);
 		}
@@ -175,7 +202,9 @@ public class StudentServlet extends HttpServlet {
 					request.setAttribute("message","Student Not Found.");
 
 					request.getRequestDispatcher("searchStudent.jsp").forward(request,response);
-			    
+					throw new StudentNotFoundException(
+						    "Student not found."
+						);
 				}
 			}
 		

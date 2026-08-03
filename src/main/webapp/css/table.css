@@ -1,0 +1,100 @@
+@charset "UTF-8";
+body{
+
+    background:green;
+    height:100vh;
+
+
+}
+.table-card{
+
+    background:white;
+
+    width:100%;
+
+    padding:2px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.1);
+
+}
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+}
+th{
+
+background:#2563EB;
+
+color:white;
+
+padding:15px;
+
+}
+td{
+
+padding:14px;
+
+border-bottom:1px solid #E2E8F0;
+
+}
+tr:hover{
+
+background:#F8FAFC;
+
+}
+tbody tr:nth-child(even){
+
+background:#F9FAFB;
+
+}
+.edit-btn{
+
+background:#F59E0B;
+
+color:white;
+
+padding:8px 15px;
+
+border-radius:6px;
+
+text-decoration:none;
+
+}
+.delete-btn{
+
+background:#DC2626;
+
+color:white;
+
+padding:8px 15px;
+
+border-radius:6px;
+
+text-decoration:none;
+
+}
+
+footer{
+
+    text-align:center;
+
+    padding:25px;
+
+    margin-top:220px;
+
+    background:white;
+
+}
+footer:hover{
+
+transform:translateY(-6px);
+
+}
+footer h1{
+
+    color:#2563EB;
+
+}

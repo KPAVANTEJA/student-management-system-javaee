@@ -4,25 +4,53 @@
 <html>
 <head>
     <title>SMS Login</title>
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
 
-<h1>Login to your account!</h1>
+<div class="login-container">
+
+    <div class="login-card">
+    
+    		<h1>Student Management System</h1>
+		<h2>Welcome Back!</h2>
+		<p>Please login to continue.</p>
+    
+    
 
 <form action="login" method="post">
-    UserName <input type="text" name="username"> <br> <br>
-    Password <input type="password" name="password"> <br> <br> <br>
+	<label>Username</label>
+    <input type="text" name="username" placeholder="Enter Username" required>
+    
+    <label>Password</label>
+    <input type="password" id="password" name="password" placeholder="Enter Password" required>
     
     <button type="submit">Login</button>
-    
 </form>
 
-<% String errormsg = (String) request.getAttribute("error");
+<a href="index.jsp">
 
-if(errormsg != null){
-    %>
-    <p><%= errormsg %> </p>
- 
-<% }%>
+← Back to Home
+
+</a>
+
+<%
+String error=request.getParameter("error");
+
+if("invalid".equals(error)){
+%>
+
+<p class="error">
+
+Invalid Username or Password
+
+</p>
+
+<%
+}
+%>
+</div>
+
+</div>
 </body>
 </html>

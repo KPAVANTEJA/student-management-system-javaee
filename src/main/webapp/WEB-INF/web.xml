@@ -16,6 +16,12 @@
   	<description></description>
   	<servlet-class>com.sms.controller.StudentServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>DashboardServlet</servlet-name>
+  	<display-name>DashboardServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.sms.controller.DashboardServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LogoutServlet</servlet-name>
   	<url-pattern>/LogoutServlet</url-pattern>
@@ -23,6 +29,10 @@
   <servlet-mapping>
   	<servlet-name>StudentServlet</servlet-name>
   	<url-pattern>/StudentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DashboardServlet</servlet-name>
+  	<url-pattern>/DashboardServlet</url-pattern>
   </servlet-mapping>
   
   

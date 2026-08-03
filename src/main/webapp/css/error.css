@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:#F8FAFC;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.error-card{
+    background:#fff;
+    padding:40px;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,.1);
+    text-align:center;
+    width:420px;
+}
+
+.error-card h1{
+    color:#DC2626;
+    margin-bottom:20px;
+}
+
+.error-card p{
+    color:#475569;
+    margin-bottom:25px;
+}
+
+.error-card a{
+    text-decoration:none;
+    background:#2563EB;
+    color:#fff;
+    padding:12px 24px;
+    border-radius:8px;
+}

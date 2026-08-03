@@ -3,12 +3,15 @@ package com.sms.dao;
 import java.sql.Connection;
 
 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sms.exception.DatabaseException;
+import com.sms.exception.StudentNotFoundException;
 import com.sms.model.Student;
 import com.sms.util.DBConnection;
 
@@ -38,8 +41,7 @@ public class StudentDAO {
 			rows = ps.executeUpdate();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new DatabaseException("Unable to perform database operation.",e);
 		}
 		return rows > 0;
 	}
@@ -107,8 +109,7 @@ public class StudentDAO {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new StudentNotFoundException("Student not found.");
 		}
 		return null;
 	}
@@ -198,4 +199,18 @@ public class StudentDAO {
 		}
 		return false;
 	}
+	
+	public int getTotalStudents() throws SQLException {
+		
+		String sql = "SELECT COUNT(*) FROM STUDENT";
+		
+		PreparedStatement ps = connect.prepareStatement(sql);
+		
+		ResultSet rs = ps.executeQuery();
+		if(rs.next()){
+		    return rs.getInt(1);
+		}
+		return 0;
+	}
+	
 }

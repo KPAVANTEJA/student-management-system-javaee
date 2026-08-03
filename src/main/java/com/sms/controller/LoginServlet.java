@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.sms.constants.SMSConstants;
 import com.sms.dao.UserDAO;
 import com.sms.model.User;
 
@@ -43,16 +44,16 @@ public class LoginServlet extends HttpServlet{
 //            request.setAttribute("user", userObject); 
         	
         		HttpSession session = request.getSession();
-        		session.setAttribute("user", userObject);
+        		session.setAttribute(SMSConstants.SESSION_USER, userObject);
         		
 //            RequestDispatcher dispatcher = request.getRequestDispatcher("dashboard.jsp");
 //            dispatcher.forward(request, response);
         		
-        		response.sendRedirect("dashboard.jsp");
+        		response.sendRedirect("dashboardServlet");
         }
         else{
-            request.setAttribute("error", "Invalid username and password");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+            //request.setAttribute("error", "Invalid username and password");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp?error=invalid");
             dispatcher.forward(request, response);
         }
         
