@@ -48,6 +48,7 @@ public class AuthenticationFilter implements Filter{
 	            uri.endsWith("index.jsp") ||
 	            uri.endsWith("login.jsp") ||
 	            uri.endsWith("login") ||
+	            
 	            uri.endsWith(".css") ||
 	            uri.endsWith(".js") ||
 	            uri.endsWith(".png") ||

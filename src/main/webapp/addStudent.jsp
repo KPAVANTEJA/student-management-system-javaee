@@ -99,7 +99,7 @@ if(msg != null){
 }
 %>
 <% String error = (String) request.getAttribute("error");
-if(msg != null){
+if(error != null){
 	%>
 	<p><%= error %></p>
 <%

@@ -10,7 +10,7 @@
 <%@ page import="com.sms.model.User" %>
 <%@ page import="com.sms.constants.SMSConstants" %>
 <% 
-	User user = (User) session.getAttribute(SMSConstants.SESSION_USER);
+	User user = (User) session.getAttribute("user");
 	
 	if(user == null){
 		response.sendRedirect("login.jsp");
@@ -27,7 +27,7 @@
 
 <span>
 Welcome,
-<%= user.getUsername() + "Your logged in as" + user.getRole() %>
+<%= user.getUsername() + " Your logged in as " + user.getRole() %>
 </span>
 <a href="logout">Logout</a>
 
