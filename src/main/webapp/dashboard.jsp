@@ -26,8 +26,8 @@
 <div class="user-section">
 
 <span>
-Welcome,
-<%= user.getUsername() + " Your logged in as " + user.getRole() %>
+Welcome
+<%= user.getUsername() + ", Your log-in as " + user.getRole() %>
 </span>
 <a href="logout">Logout</a>
 
@@ -47,43 +47,43 @@ Welcome,
 
 <div class="card">
 
-<h2>Add Student</h2>
-<a href="addStudent.jsp">Open</a>
+<p>Fill student details correctly in the form given and submit to add new student to the college portal.</p>
+<a href="addStudent.jsp">Create</a>
 
 </div>
 
 <div class="card">
 
-<h2>View Students</h2>
-<a href="studentServlet?action=view">Open</a>
+<p>View all students in the College.</p>
+<a href="studentServlet?action=view">Read</a>
 
 </div>
 
 <div class="card">
 
-<h2>Search Student</h2>
-<a href="searchStudent.jsp">Open</a>
+<p>Verify whether the student exists in the college or not by Roll Number.</p>
+<a href="searchStudent.jsp">Search</a>
 
 </div>
 
 <div class="card">
 
-<h2>Update Student</h2>
-<a href="studentServlet?action=view">Open</a>
+<p>Update a student details with change information quickly.</p>
+<a href="studentServlet?action=view">Update</a>
 
 </div>
 
 <div class="card">
 
-<h2>Delete Student</h2>
-<a href="StudentServlet?action=view">Open</a>
+<p>Delete a student from college portal.</p>
+<a href="StudentServlet?action=view">Delete</a>
 
 </div>
 
 <div class="card">
 
-<h2>Logout</h2>
-<a href="logout">Open</a>
+<p>Sign out here.</p>
+<a href="logout">Sign-out</a>
 
 </div>
 

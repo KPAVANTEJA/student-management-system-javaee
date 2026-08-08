@@ -1,7 +1,13 @@
 @charset "UTF-8";
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
 body{
 
-background:#F8FAFC;
+background:#F4F7FA;
 
 font-family:"Segoe UI";
 
@@ -16,7 +22,7 @@ align-items:center;
 
 padding:20px 50px;
 
-background:white;
+background:#101827;
 
 box-shadow:0 2px 10px rgba(0,0,0,.08);
 
@@ -27,7 +33,7 @@ font-size:26px;
 
 font-weight:bold;
 
-color:#2563EB;
+color:#F4F7FA;
 
 }
 .user-section{
@@ -38,6 +44,8 @@ align-items:center;
 
 gap:20px;
 
+color:#F4F7FA;
+
 }
 .user-section a{
 
@@ -45,11 +53,11 @@ text-decoration:none;
 
 background:#DC2626;
 
-color:white;
-
 padding:10px 18px;
 
 border-radius:8px;
+
+color:#F4F7FA;
 
 }
 .welcome{
@@ -84,6 +92,7 @@ box-shadow:0 4px 15px rgba(0,0,0,.08);
 
 transition:.3s;
 
+font-weight:500;
 }
 .card:hover{
 
@@ -106,6 +115,7 @@ padding:10px 20px;
 
 border-radius:8px;
 
+font-weight:400;
 }
 footer{
 
@@ -115,7 +125,9 @@ padding:20px;
 
 text-align:center;
 
-background:white;
+background:#101827;
+
+color:#F4F7FA;
 
 }
 @media(max-width:900px){

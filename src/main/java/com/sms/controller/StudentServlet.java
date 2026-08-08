@@ -8,9 +8,11 @@ import java.sql.SQLException;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sms.dao.StudentDAO;
 import com.sms.exception.DatabaseException;
@@ -40,7 +42,7 @@ public class StudentServlet extends HttpServlet {
 			
 			if(rollNo.isEmpty()){
 
-				request.setAttribute("error", "Email is required.");
+				request.setAttribute("warning", "Roll Number is required.");
 				request.getRequestDispatcher("addStudent.jsp").forward(request, response);
 
 			    return;
@@ -48,13 +50,15 @@ public class StudentServlet extends HttpServlet {
 			
 			if(studentDAO.isRollNumberExists(rollNo)){
 
-			    request.setAttribute("error", "Roll Number already exists.");
+			    //HttpSession session = request.getSession();
+				request.setAttribute("warning", "Roll Number already exists.");
 
 			    request.getRequestDispatcher("addStudent.jsp").forward(request,response);
 
-			    throw new DuplicateStudentException(
-			    	    "Roll Number already exists."
-			    	);
+//			    throw new DuplicateStudentException(
+//			    	    "Roll Number already exists."
+//			    	);
+			    return;
 			}
 			
 			String firstName = request.getParameter("firstName");
@@ -65,14 +69,14 @@ public class StudentServlet extends HttpServlet {
 			email = email.trim();
 			
 			if(email.isEmpty()) {
-				request.setAttribute("error", "Email is required.");
+				request.setAttribute("warning", "Email is required.");
 				request.getRequestDispatcher("addStudent.jsp").forward(request, response);
 				
 				return;
 			}
 			if(studentDAO.isEmailExists(email)){
 
-			    request.setAttribute("error", "Email already exists.");
+			    request.setAttribute("warning", "Email already exists.");
 
 			    request.getRequestDispatcher("addStudent.jsp").forward(request,response);
 
@@ -83,6 +87,7 @@ public class StudentServlet extends HttpServlet {
 			String branch = request.getParameter("branch");
 			int year = Integer.parseInt(request.getParameter("year"));
 			String section = request.getParameter("section");
+			section = section.trim().toUpperCase();
 			
 			
 
@@ -109,9 +114,7 @@ public class StudentServlet extends HttpServlet {
 			try {
 				studentDAO.addStudent(student);
 				response.sendRedirect("studentServlet?action=view&success=added");
-			} catch (DuplicateStudentException e) {
-				request.setAttribute("message", "Failed to register.");
-				request.getRequestDispatcher("addStudent.jsp").forward(request, response);
+			
 			} catch(DatabaseException e) {
 				response.sendRedirect("error.jsp");
 			}
@@ -142,17 +145,16 @@ public class StudentServlet extends HttpServlet {
 			student.setSection(section);
 			
 			boolean updated = studentDAO.updateStudent(student);
+//			boolean updated = false;
 			
 			if(updated) {
-				response.sendRedirect("studentServlet?action=view");
+				response.sendRedirect("studentServlet?action=view&success=updated");
 			} else {
-				
-				
-				request.setAttribute("message", "Failed to update details.");
 				
 				Student existingStudent = studentDAO.searchStudent(rollNo);
 			    request.setAttribute("student", existingStudent);
 			    
+				request.setAttribute("failed", "Can not update changes.");
 				request.getRequestDispatcher("editStudent.jsp").forward(request, response);
 			}
 		}
@@ -188,13 +190,14 @@ public class StudentServlet extends HttpServlet {
 			
 			String rollNo = request.getParameter("rollNo");
 			
+			rollNo = rollNo.trim().toUpperCase();			
 			Student student = studentDAO.searchStudent(rollNo);
 			
 			if(student != null){
 
 			    request.setAttribute("student",student);
 
-			    request.getRequestDispatcher("searchResult.jsp").forward(request,response);
+			    request.getRequestDispatcher("searchStudent.jsp").forward(request,response);
 
 				}
 				else{
@@ -202,9 +205,9 @@ public class StudentServlet extends HttpServlet {
 					request.setAttribute("message","Student Not Found.");
 
 					request.getRequestDispatcher("searchStudent.jsp").forward(request,response);
-					throw new StudentNotFoundException(
-						    "Student not found."
-						);
+//					throw new StudentNotFoundException(
+//						    "Student not found."
+//						);
 				}
 			}
 		
@@ -225,7 +228,8 @@ public class StudentServlet extends HttpServlet {
 			boolean deleted = studentDAO.deleteStudent(rollNo);
 			
 			if(deleted) {
-				response.sendRedirect("studentServlet?action=view");
+				;
+				request.getRequestDispatcher("studentServlet?action=view&success=deleted").forward(request, response);
 			} else {
 				request.setAttribute("message", "Failed to delete");
 				request.getRequestDispatcher("viewStudents.jsp").forward(request, response);

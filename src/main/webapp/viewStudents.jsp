@@ -11,22 +11,47 @@
 <%@ page import = "java.util.List" %>
 <%@ page import = "com.sms.model.Student" %>
 
-<% List<Student> students = (List<Student>) request.getAttribute("students");
+<% List<Student> students = (List<Student>) request.getAttribute("students");%>
 
+
+<header>
+<div class="navbar">
+<div>
+<%
 String success = request.getParameter("success");
 
 if("added".equals(success)){
 %>
-<header>
+
 <p>Student added successfully.</p>
+
+<% }
+
+else if("deleted".equals(success)){
+%>
+
+<p>Student deleted successfully.</p>
+
+<%
+}
+
+else if("updated".equals(success)){
+
+%>
+<p>Changes updated successfully.</p>
 
 <%
 }
 %>
 
-<% String msg = (String) request.getAttribute("message"); %>
+</div>
 
-<h5><%= msg %></h5>
+<div class="user-section">
+<h3>Total Students - <%= request.getAttribute("totalStudents") %></h3>
+<a href="login?action=inView">Dashboard</a>
+</div>
+
+</div>
 </header>
 
 <section>
@@ -78,13 +103,9 @@ for(Student student : students){
 </tbody>
 </table>
 </div>
+
 </section>
 
-<footer>
-<div class="card">
-<h1>Total Students</h1>
-<h2><%= request.getAttribute("totalStudents") %></h2>
-</div>
-</footer>
+
 </body>
 </html>

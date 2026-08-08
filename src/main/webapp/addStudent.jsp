@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Student Management System</title>
+<title>New Student</title>
 <link rel="stylesheet" href="css/form.css">
 </head>
 
@@ -14,7 +14,15 @@
 
 <div class="form-card">
 
-<h1>Add Student</h1>
+<% String warning = (String) request.getAttribute("warning");
+if(warning != null){
+	%>
+	<p class="error"><%= warning %></p>
+<%
+}
+%>
+
+<h1>Add New Student</h1>
 <p>Enter student details below.</p>
 
 <form action="studentServlet?action=add" method= "post" onsubmit="return validateForm();">
@@ -91,20 +99,6 @@
 </div>
 </form>
 
-<% String msg = (String) request.getAttribute("message");
-if(msg != null){
-	%>
-	<p><%= msg %></p>
-<%
-}
-%>
-<% String error = (String) request.getAttribute("error");
-if(error != null){
-	%>
-	<p><%= error %></p>
-<%
-}
-%>
 
 </div>
 </div>

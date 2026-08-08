@@ -21,8 +21,16 @@ public class LoginServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
     {
+		
+	 String action = request.getParameter("action");
+	     
+	 if("inSearch".equals(action) || "inView".equals(action)) {
+	    	 	response.sendRedirect("dashboard.jsp");
+	    	 	return;
+	     }
      RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
      dispatcher.forward(request, response);
+     
     }
 
     @Override

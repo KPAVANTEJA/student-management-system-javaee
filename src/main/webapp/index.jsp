@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Student Management System</title>
+<title>Home</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
     <nav class="navbar">
 
         <div class="logo">
-            Student Management System
+            SMS
         </div>
 
         <div>
@@ -46,7 +46,7 @@
 
     <a href="login.jsp" class="hero-btn">
 
-        Login to Dashboard
+        Get Started!
 
     </a>
 
