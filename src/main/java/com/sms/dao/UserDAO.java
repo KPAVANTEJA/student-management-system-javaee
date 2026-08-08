@@ -12,14 +12,12 @@ import com.sms.util.DBConnection;
 public class UserDAO {
 
     public User validateUser(String username, String password){
+    	
+    	String sql = "SELECT * FROM SMS_USER WHERE USERNAME = ? AND PASSWORD = ?";
         
-        try {
-
-            Connection connect = DBConnection.getConnection();
-
-            String sql = "SELECT * FROM SMS_USER WHERE USERNAME = ? AND PASSWORD = ?";
-
-            PreparedStatement ps = connect.prepareStatement(sql);
+        try(Connection connect = DBConnection.getConnection();
+        		PreparedStatement ps = connect.prepareStatement(sql)
+        		) {
 
             ps.setString(1, username);
             ps.setString(2, password);

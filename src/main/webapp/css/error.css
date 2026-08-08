@@ -2,7 +2,7 @@
 
 body{
     font-family:"Segoe UI",Arial,sans-serif;
-    background:#F8FAFC;
+    background:gray;
     display:flex;
     justify-content:center;
     align-items:center;

@@ -25,8 +25,7 @@ public class StudentDAO {
 		
 		String sql = "INSERT INTO STUDENT(ROLL_NO, FIRST_NAME, LAST_NAME, GENDER, EMAIL, PHONE, BRANCH, YEAR, SECTION) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
-		try {
-			PreparedStatement ps = connect.prepareStatement(sql);
+		try(PreparedStatement ps = connect.prepareStatement(sql)){
 			
 			ps.setString(1, student.getRollNo());
 			ps.setString(2, student.getFirstName());
@@ -52,8 +51,8 @@ public class StudentDAO {
 		
 		List<Student> students = new ArrayList<>();
 		
-		try {
-			PreparedStatement ps = connect.prepareStatement(sql);
+		try(PreparedStatement ps = connect.prepareStatement(sql)) {
+			
 			
 			ResultSet rs = ps.executeQuery();
 			
@@ -85,9 +84,9 @@ public class StudentDAO {
 		String sql = "SELECT * FROM STUDENT WHERE ROLL_NO = ?";
 		
 		
-		try {
+		try(PreparedStatement ps = connect.prepareStatement(sql)) {
 			
-			PreparedStatement ps = connect.prepareStatement(sql);
+			
 			ps.setString(1, rollNo);
 			
 			ResultSet rs = ps.executeQuery();
@@ -119,8 +118,8 @@ public class StudentDAO {
 		String sql = "UPDATE STUDENT SET FIRST_NAME=?, LAST_NAME=?, GENDER=?, EMAIL=?, PHONE=?, BRANCH=?, YEAR=?, SECTION=? WHERE ROLL_NO = ?";
 		int updatedRows = 0;
 		
-		try {
-			PreparedStatement ps = connect.prepareStatement(sql);
+		try(PreparedStatement ps = connect.prepareStatement(sql)) {
+			
 			
 			ps.setString(1, student.getFirstName());
 			ps.setString(2, student.getLastName());
@@ -149,8 +148,8 @@ public class StudentDAO {
 		
 		String sql = "DELETE FROM STUDENT WHERE ROLL_NO = ?";
 		
-		try {
-			PreparedStatement ps = connect.prepareStatement(sql);
+		try(PreparedStatement ps = connect.prepareStatement(sql)) {
+			
 			
 			ps.setString(1, rollNo);
 			
@@ -167,8 +166,8 @@ public class StudentDAO {
 	public boolean isRollNumberExists(String rollNo) {
 		String sql = "SELECT 1 FROM STUDENT WHERE ROLL_NO=?";
 		
-		try {
-			PreparedStatement ps = connect.prepareStatement(sql);
+		try(PreparedStatement ps = connect.prepareStatement(sql)) {
+			
 			
 			ps.setString(1, rollNo);
 			
@@ -185,8 +184,8 @@ public class StudentDAO {
 	public boolean isEmailExists(String email) {
 		String sql = "SELECT 1 FROM STUDENT WHERE EMAIL=?";
 		
-		try {
-			PreparedStatement ps = connect.prepareStatement(sql);
+		try(PreparedStatement ps = connect.prepareStatement(sql);) {
+			
 			
 			ps.setString(1, email);
 			
