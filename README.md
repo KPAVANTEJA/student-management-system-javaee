@@ -221,3 +221,194 @@ Verify that Java 17 and Maven are installed and configured correctly.
 java -version
 mvn -version
 ```
+
+## 📸 Screenshots
+
+### Home Page
+
+![Home Page](screenshots/home.jpeg)
+
+### Login
+
+![Login Page](screenshots/login.jpeg)
+
+### Dashboard
+
+![Dashboard](screenshots/dashboard.jpeg)
+
+### Student Management
+
+![Student List](screenshots/student-list.jpeg)
+
+### Add Student
+
+![Add Student](screenshots/add-student.jpeg)
+
+### Search Student
+
+![Edit Student](screenshots/search-student.jpeg)
+
+### Edit Student
+
+![Edit Student](screenshots/edit-student.jpeg)
+
+## Demo
+
+<video src="screenshots/Student-Management-System-Demo.mp4" width="100%" controls></video>
+
+## 📁 Project Structure
+
+```text
+student-management-system/
+├── src/
+│   └── main/
+│       ├── java/
+│       │   └── ...
+│       └── webapp/
+│           ├── WEB-INF/
+│           │   └── web.xml
+│           ├── css/
+│           └── js/
+│
+├── database/
+│   └── student_management.sql
+│
+├── docs/
+│   └── architecture.png
+│
+├── screenshots/
+│   ├── home.png
+│   ├── login.png
+│   ├── dashboard.png
+│   ├── student-list.png
+│   ├── add-student.png
+│   └── edit-student.png
+│
+├── .gitignore
+├── pom.xml
+└── README.md
+
+src/main/java/
+└── com/student/
+    ├── controller/
+    │   ├── LoginServlet.java
+    │   ├── LogoutServlet.java
+    │   └── StudentServlet.java
+    │
+    ├── dao/
+    │   ├── UserDAO.java
+    │   └── StudentDAO.java
+    │
+    ├── model/
+    │   ├── User.java
+    │   └── Student.java
+    │
+    └── util/
+        └── DBConnection.java
+```
+
+### Directory Overview
+
+| Directory/File | Purpose |
+|----------------|---------|
+| `src/main/java` | Java source code for application logic |
+| `controller` | Handles HTTP requests through Servlets |
+| `dao` | Handles database operations |
+| `model` | Represents application data/entities |
+| `util` | Contains reusable utility classes such as database connection handling |
+| `src/main/webapp` | JSP pages and web resources |
+| `WEB-INF` | Protected web application configuration |
+| `database` | Database schema and setup scripts |
+| `docs` | Project documentation and architecture diagrams |
+| `screenshots` | Application screenshots used in the README |
+| `pom.xml` | Maven project configuration and dependencies |
+| `.gitignore` | Prevents unwanted files and secrets from being committed |
+
+## 🔮 Future Enhancements
+
+The project can be further enhanced with the following features:
+
+- Centralized logging using Log4j2
+- Password hashing and stronger authentication mechanisms
+- Automated unit and integration testing using JUnit and Mockito
+- Advanced student filtering and sorting
+- Student profile and document management
+- Export student records to PDF or Excel
+- Email notifications for important student updates
+- REST API integration for external applications
+- Docker-based application deployment
+- CI/CD pipeline for automated build and deployment
+- Production monitoring and centralized logging
+
+## 🤝 Contributing
+
+Contributions, suggestions, and improvements are welcome.
+
+To contribute:
+
+1. Fork the repository.
+2. Clone your fork locally.
+3. Create a new feature branch.
+4. Make your changes and test them locally.
+5. Commit your changes with a clear commit message.
+6. Push the branch to your fork.
+7. Open a Pull Request describing your changes.
+
+Please ensure that your changes follow the existing project structure and coding conventions.
+
+### Example Workflow
+
+```bash
+git clone <YOUR_FORK_URL>
+cd student-management-system
+
+git checkout -b feature/your-feature
+
+git add .
+git commit -m "Add your feature"
+
+git push origin feature/your-feature
+```
+
+### Contribution Guidelines
+
+- Keep changes focused and related to the proposed feature or fix.
+- Follow the existing Java coding style.
+- Do not commit database passwords, credentials, API keys, or other sensitive information.
+- Test changes before submitting a Pull Request.
+- Use clear and descriptive commit messages.
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## 💡 Key Technical Highlights
+
+- Developed a Java-based web application using JSP and Servlets.
+- Implemented CRUD operations for student record management.
+- Integrated Oracle Database using JDBC and the DAO design pattern.
+- Implemented session-based authentication and role-based access control.
+- Added search and pagination for efficient student record management.
+- Used Maven for dependency management and application builds.
+- Designed the application using a structured MVC-based architecture.
+- Implemented input validation and exception handling for reliable application behavior.
+
+## 🎯 Skills Demonstrated
+
+**Backend Development:** Java, Servlets, JDBC, DAO
+
+**Web Development:** JSP, HTML, CSS, JavaScript
+
+**Database:** Oracle SQL, Database Design
+
+**Software Engineering:** MVC Architecture, Exception Handling, Session Management
+
+**Build & Version Control:** Maven, Git, GitHub
+
+## 👨‍💻 My Contribution
+
+Designed and developed the application end-to-end, including the JSP-based user interface, Servlet controllers, DAO layer, JDBC database integration, authentication and session management, student CRUD operations, search, and Maven-based project configuration.
+
+## 🔗 Project Repository
+
+[View the source code on GitHub](https://github.com/KPAVANTEJA/student-management-system-javaee.git)

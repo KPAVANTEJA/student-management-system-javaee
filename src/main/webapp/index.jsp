@@ -52,6 +52,27 @@
 
 </section>
 
+<div class="session-msg">
+<%
+String message =
+request.getParameter("expired");
+
+if("true".equals(message)){
+%>
+
+<p style="color:red">
+
+Your session has expired.
+
+Please log in again.
+
+</p> 
+
+<%
+}
+%>
+</div>
+
 <section class="features">
 
     <div class="card">
@@ -96,24 +117,6 @@
 
 </section>
 
-<%
-String message =
-request.getParameter("expired");
-
-if("true".equals(message)){
-%>
-
-<p style="color:red">
-
-Your session has expired.
-
-Please log in again.
-
-</p> 
-
-<%
-}
-%>
 
 <footer>
 

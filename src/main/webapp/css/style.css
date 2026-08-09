@@ -114,6 +114,9 @@ body{
     background:#1D4ED8;
 
 }
+.session-msg{
+	text-align: center;
+}
 .features{
 
     display:grid;
