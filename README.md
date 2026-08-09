@@ -90,3 +90,49 @@ The following diagram shows the high-level architecture of the Student Managemen
 
 ![Student Management System Architecture](docs/architecture.png)
 
+## 🗄️ Database Schema
+
+The application uses Oracle Database to store user authentication details and student records. JDBC is used to establish the database connection and execute SQL operations through the DAO layer.
+
+### USERS Table
+
+| Column | Data Type | Description |
+|--------|-----------|-------------|
+| `USERNAME` | VARCHAR2 | User login name |
+| `PASSWORD` | VARCHAR2 | Stored user password |
+| `ROLE` | VARCHAR2 | User authorization role |
+
+### STUDENT Table
+
+| Column | Data Type | Description |
+|--------|-----------|-------------|
+| `ROLL_NO` | VARCHAR2 | Unique student roll number |
+| `FIRST_NAME` | VARCHAR2 | Student first name |
+| `LAST_NAME` | VARCHAR2 | Student last name |
+| `PHONE` | NUMBER | Student phone number |
+| `EMAIL` | VARCHAR2 | Student email address |
+| `GENDER` | VARCHAR2 | Student gender |
+| `BRANCH` | VARCHAR2 | Student branch |
+| `YEAR` | NUMBER | Student academic year |
+| `SECTION` | VARCHAR2 | Student section |
+
+### Database Structure
+
+```text
+Oracle Database
+├── USERS
+│   ├── USER_ID
+│   ├── USERNAME
+│   ├── PASSWORD
+│   └── ROLE
+│
+└── STUDENT
+    ├── ROLL_NO
+    ├── FIRST_NAME
+    ├── LAST_NAME
+    ├── PHONE
+    ├── EMAIL
+    ├── GENDER
+    ├── BRANCH
+    ├── YEAR
+    └── SECTION
