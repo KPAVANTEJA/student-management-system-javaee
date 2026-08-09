@@ -84,3 +84,9 @@ The application follows the MVC architecture and uses the DAO design pattern to 
 | **Git** | Version control |
 | **GitHub** | Source code management and project collaboration |
 
+## 🏗️ Architecture Diagram
+
+The following diagram shows the high-level architecture of the Student Management System.
+
+![Student Management System Architecture](docs/architecture.png)
+
