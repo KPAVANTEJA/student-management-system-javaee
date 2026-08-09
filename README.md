@@ -67,3 +67,20 @@ The application follows the MVC architecture and uses the DAO design pattern to 
 - Confirmation messages for important actions
 - Clean and consistent UI design
 
+## 🛠️ Technology Stack
+
+| Technology | Purpose |
+|------------|---------|
+| **Java 17** | Core application development and backend logic |
+| **JSP** | Dynamic web page development |
+| **Servlets** | Request handling and controller logic |
+| **JDBC** | Database connectivity and SQL operations |
+| **Oracle Database** | Relational database for storing application data |
+| **Maven** | Dependency management and project build automation |
+| **Apache Tomcat 9** | Servlet container and web application server |
+| **HTML5** | Web page structure |
+| **CSS3** | User interface styling and responsive layouts |
+| **JavaScript** | Client-side interactions and validations |
+| **Git** | Version control |
+| **GitHub** | Source code management and project collaboration |
+
