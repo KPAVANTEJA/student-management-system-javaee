@@ -252,10 +252,6 @@ mvn -version
 
 ![Edit Student](screenshots/edit-student.jpeg)
 
-## Demo
-
-<video src="screenshots/Student-Management-System-Demo.mp4" width="100%" controls></video>
-
 ## 📁 Project Structure
 
 ```text
