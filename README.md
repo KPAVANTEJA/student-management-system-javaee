@@ -136,3 +136,88 @@ Oracle Database
     ├── BRANCH
     ├── YEAR
     └── SECTION
+```
+
+
+## 🚀 Installation Guide
+
+### Prerequisites
+
+Make sure the following are installed before running the application:
+
+- Java 17 or later
+- Apache Maven
+- Oracle Database
+- Apache Tomcat 9
+- Git
+- A web browser
+
+### 1. Clone the Repository
+
+```bash
+git clone <YOUR_GITHUB_REPOSITORY_URL>
+cd student-management-system
+```
+
+### 2. Configure the Oracle Database
+
+1. Start your Oracle Database instance.
+2. Create the required database user/schema.
+3. Open the SQL script located in:
+
+```text
+database/student_management.sql
+```
+
+## Step 5 — Configure Database Credentials
+
+### 3. Configure Database Credentials
+
+Configure the database connection using your local configuration file.
+
+## Step 6 — Build the Maven Project
+
+### 4. Build the Application
+
+From the project root, run:
+
+```bash
+mvn clean package
+```
+
+## Step 7 — Deploy to Tomcat
+
+### 5. Deploy to Apache Tomcat
+
+Copy the generated WAR file into the Tomcat `webapps` directory:
+
+```text
+apache-tomcat-9.x.x/webapps/
+```
+
+## Step 8 — Open the Application
+
+### 6. Run the Application
+
+Open your browser and navigate to:
+
+```text
+http://localhost:8080/<APPLICATION_CONTEXT_PATH>/
+```
+
+## Step 9 — Login
+
+### 7. Login
+
+Use the demo account configured for the application.
+
+### Troubleshooting
+
+**Maven build fails**
+
+Verify that Java 17 and Maven are installed and configured correctly.
+
+```bash
+java -version
+mvn -version
+```
