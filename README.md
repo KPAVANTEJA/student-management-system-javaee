@@ -21,7 +21,6 @@ The application follows the MVC architecture and uses the DAO design pattern to 
 ### Project Highlights
 
 - Secure user authentication and session management
-- Role-based access control for Admin and Staff users
 - Complete student CRUD operations
 - Student search
 - Oracle database integration using JDBC
@@ -30,4 +29,41 @@ The application follows the MVC architecture and uses the DAO design pattern to 
 - Centralized application logging
 - Maven-based project management
 - Responsive and user-friendly interface
+
+## ✨ Features
+
+### 🔐 Authentication & Authorization
+
+- Secure user login and logout
+- Session-based authentication
+- Protected application pages using authentication filters
+
+### 👨‍🎓 Student Management
+
+- Add new student records
+- View student details
+- Update existing student records
+- Delete student records
+- Search students by relevant information
+
+### 📊 Dashboard
+
+- Centralized application dashboard
+- Quick access to major student management operations
+
+### 🛡️ Security & Reliability
+
+- Input validation
+- PreparedStatement-based database operations
+- Exception handling
+- Centralized application logging
+- Externalized database configuration
+
+### 🎨 User Interface
+
+- Responsive JSP-based interface
+- Consistent navigation and layouts
+- User-friendly forms
+- Confirmation messages for important actions
+- Clean and consistent UI design
 
