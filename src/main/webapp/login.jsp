@@ -20,7 +20,7 @@
 
 <form action="login" method="post">
 	<label>Username</label>
-    <input type="text" name="username" placeholder="Enter Username" required>
+    <input type="text" name="username" placeholder="Enter Username" required autofocus>
     
     <label>Password</label>
     <input type="password" id="password" name="password" placeholder="Enter Password" required>
